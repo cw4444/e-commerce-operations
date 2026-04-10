@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Ops MVP</title>
+    <meta
+      name="description"
+      content="A believable MVP showing how a junior e-commerce lead workflow can be partially automated."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">E-commerce ops MVP</p>
+          <h1>One operator, AI-assisted, covering the repeatable weekly workflow.</h1>
+          <p class="lede">
+            A practical demo for performance monitoring, listing audits, competitor watch, review
+            themes, and weekly ops briefs using sample data.
+          </p>
+          <div class="hero-meta">
+            <span>Sample data</span>
+            <span>Weekly cadence</span>
+            <span>Human approvals preserved</span>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-label">Current week</div>
+          <div class="metric-row">
+            <div>
+              <div class="metric-value" id="salesMetric">-</div>
+              <div class="metric-label">Sales</div>
+            </div>
+            <div>
+              <div class="metric-value" id="conversionMetric">-</div>
+              <div class="metric-label">Conversion</div>
+            </div>
+            <div>
+              <div class="metric-value" id="healthMetric">-</div>
+              <div class="metric-label">Account health</div>
+            </div>
+          </div>
+          <div class="signal-list" id="signalList"></div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="section-head">
+          <h2>Workflow modules</h2>
+          <p>Structured enough to be useful, lightweight enough to explain in five minutes.</p>
+        </div>
+
+        <div class="filter-bar" role="toolbar" aria-label="Module filters">
+          <button class="filter-pill active" data-filter="all">All</button>
+          <button class="filter-pill" data-filter="monitoring">Monitoring</button>
+          <button class="filter-pill" data-filter="audit">Audit</button>
+          <button class="filter-pill" data-filter="market">Market</button>
+          <button class="filter-pill" data-filter="summary">Summary</button>
+          <label class="search-wrap">
+            <span>Search</span>
+            <input id="moduleSearch" type="search" placeholder="title, bullet, review, pricing..." />
+          </label>
+        </div>
+
+        <div class="module-grid">
+          <article class="module module-wide" data-tags="monitoring health chart">
+            <div class="module-top">
+              <div>
+                <p class="module-kicker">01</p>
+                <h3>Brand health monitor</h3>
+              </div>
+              <span class="status high">Alerting</span>
+            </div>
+            <p class="module-copy">
+              Sales, conversion, returns, reviews, stock risk, price changes, and account health
+              flags are compared to a weekly baseline.
+            </p>
+            <div class="chart-shell">
+              <div class="chart-legend">
+                <span><i class="dot sales"></i> Sales</span>
+                <span><i class="dot conversion"></i> Conversion</span>
+                <span><i class="dot health"></i> Account health</span>
+              </div>
+              <canvas id="healthChart" height="110"></canvas>
+            </div>
+            <div class="mini-table" id="brandHealthTable"></div>
+          </article>
+
+          <article class="module" data-tags="audit listings compliance">
+            <div class="module-top">
+              <div>
+                <p class="module-kicker">02</p>
+                <h3>Listing audit</h3>
+              </div>
+              <span class="status live">Checklist</span>
+            </div>
+            <p class="module-copy">
+              Missing bullets, weak titles, inconsistent attributes, image count checks, and SEO-ish
+              gaps.
+            </p>
+            <ul class="bullet-list" id="listingIssues"></ul>
+          </article>
+
+          <article class="module" data-tags="review text summary">
+            <div class="module-top">
+              <div>
+                <p class="module-kicker">03</p>
+                <h3>Review theme summariser</h3>
+              </div>
+              <span class="status live">Text</span>
+            </div>
+            <p class="module-copy">
+              Pull reviews into themes like quality, sizing, delivery, defects, praise, and
+              complaints.
+            </p>
+            <div class="theme-chips" id="reviewThemes"></div>
+          </article>
+
+          <article class="module" data-tags="market competitor pricing">
+            <div class="module-top">
+              <div>
+                <p class="module-kicker">04</p>
+                <h3>Competitor tracker</h3>
+              </div>
+              <span class="status watch">Market</span>
+            </div>
+            <p class="module-copy">
+              Basic comparison across price, rating, review count, content changes, and possible
+              white space.
+            </p>
+            <div class="competitor-list" id="competitorList"></div>
+          </article>
+
+          <article class="module module-wide" data-tags="summary briefing">
+            <div class="module-top">
+              <div>
+                <p class="module-kicker">05</p>
+                <h3>Weekly ops brief generator</h3>
+              </div>
+              <span class="status summary">Brief</span>
+            </div>
+            <p class="module-copy">
+              "What changed, what matters, what to do next" in a format that a founder or hiring
+              manager can scan instantly.
+            </p>
+            <div class="brief-grid">
+              <div>
+                <h4>What changed</h4>
+                <p id="whatChanged"></p>
+              </div>
+              <div>
+                <h4>What matters</h4>
+                <p id="whatMatters"></p>
+              </div>
+              <div>
+                <h4>What to do next</h4>
+                <p id="whatNext"></p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="human-box">
+        <div>
+          <p class="module-kicker">Human decision layer</p>
+          <h2>Still needs a person for pricing, tradeoffs, escalation, and coordination.</h2>
+        </div>
+        <div class="human-points">
+          <span>Pricing approval</span>
+          <span>Margin tradeoffs</span>
+          <span>Compliance escalation</span>
+          <span>Cross-functional coordination</span>
+          <span>Final sign-off</span>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

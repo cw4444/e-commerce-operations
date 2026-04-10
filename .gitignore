@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+.venv/
+venv/
+
+# KB data — never commit raw docs or wiki content
+raw/
+wiki/
+.kb/
+
+# Environment / secrets
+.env
+.env.*
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.sw?
+
+# Misc
+*.log
+.claude/

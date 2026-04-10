@@ -1,0 +1,85 @@
+{
+  "reporting_week": "Week ending 2026-04-10",
+  "performance": {
+    "previous_week": {
+      "sales": 48200,
+      "conversion_rate": 3.4,
+      "account_health": 92,
+      "stockout_days": 1
+    },
+    "current_week": {
+      "sales": 41750,
+      "conversion_rate": 3.1,
+      "account_health": 87,
+      "stockout_days": 2
+    }
+  },
+  "listings": [
+    {
+      "sku": "SKU-1001",
+      "marketplace": "Amazon UK",
+      "title_score": 72,
+      "bullet_coverage": 88,
+      "image_count": 5,
+      "compliance_flag": false,
+      "keyword_gap": 7,
+      "recommendation": "Refresh title, expand bullets, and add one image."
+    },
+    {
+      "sku": "SKU-2044",
+      "marketplace": "Amazon DE",
+      "title_score": 91,
+      "bullet_coverage": 96,
+      "image_count": 7,
+      "compliance_flag": true,
+      "keyword_gap": 2,
+      "recommendation": "Escalate compliance review before making edits."
+    },
+    {
+      "sku": "SKU-8820",
+      "marketplace": "Amazon UK",
+      "title_score": 84,
+      "bullet_coverage": 82,
+      "image_count": 6,
+      "compliance_flag": false,
+      "keyword_gap": 4,
+      "recommendation": "Tighten bullet copy and add missing attributes."
+    }
+  ],
+  "our_brand": {
+    "brand": "Core Brand",
+    "price": 24.99,
+    "rating": 4.2,
+    "review_count": 1840
+  },
+  "competitors": [
+    {
+      "brand": "Competitor A",
+      "price": 22.49,
+      "rating": 4.4,
+      "review_count": 2510
+    },
+    {
+      "brand": "Competitor B",
+      "price": 26.99,
+      "rating": 4.1,
+      "review_count": 990
+    },
+    {
+      "brand": "Competitor C",
+      "price": 23.99,
+      "rating": 4.6,
+      "review_count": 3220
+    }
+  ],
+  "reviews": [
+    "Good quality, but the delivery took longer than expected.",
+    "The product feels durable and well made.",
+    "Instructions were unclear and assembly was frustrating.",
+    "Size runs a little small compared with the listing.",
+    "Arrived on time and worked as described.",
+    "The item broke after a week, which was disappointing.",
+    "Packaging was fine but shipping was delayed.",
+    "Excellent quality and easy to use."
+  ]
+}

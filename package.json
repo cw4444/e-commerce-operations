@@ -1,0 +1,11 @@
+{
+  "name": "e-commerce-operations-mvp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "node -e \"console.log('Static demo - no build step required')\""
+  }
+}
